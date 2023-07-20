@@ -23,7 +23,7 @@ public class Jump : MonoBehaviour
         player.rotation = 0f;
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(player.velocity.y >= -5 && player.velocity.y <= 5)
+            if (player.velocity.y >= -5 && player.velocity.y <= 5)
             {
                 if (direction)
                 {
@@ -35,6 +35,7 @@ public class Jump : MonoBehaviour
                 }
                 player.AddForce(new Vector2(0, forceAmount), ForceMode2D.Impulse);
             }
+            //player.AddForce(new Vector2(0, forceAmount), ForceMode2D.Impulse);
         }
     }
 
