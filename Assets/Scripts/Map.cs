@@ -15,7 +15,7 @@ public class Map {
     public static float maxFloorLength = 5f;
 
     public Map() { }
-    public virtual void initValueMap(int wallAmount, int coinAmount, Vector2 startPos)
+    public void initValueMap(int wallAmount, int coinAmount, Vector2 startPos)
     {
         walls = new List<GameObject>(wallAmount);
         floors = new List<GameObject>(10);
@@ -25,16 +25,14 @@ public class Map {
         GameObject wall;
         GameObject floor;
         
-        Vector2 pos = startPos;
         for (int i = 0; i < 10; i++)
         {
             isFloorHaveWall.Add(0);
             floor = FloorPool.instance.GetFloor();
             floor.SetActive(true);
 
-            floor.transform.position = pos;
+            floor.transform.Translate(startPos.x, startPos.y + floorDistance*i, 1);
             floor.transform.localScale.Set(maxFloorLength, 0.1f, 1f);
-            pos.Set(startPos.x, startPos.y + floorDistance);
 
             floors.Add(floor);
         }
@@ -45,9 +43,6 @@ public class Map {
             wall.SetActive(true);
             walls.Add(wall);
         }
-
-        //walls[wallAmount - 2].transform.position = ;
-        //walls[wallAmount - 1].transform.position = ;
         startPosition = startPos;
     }
 
@@ -60,7 +55,6 @@ public class Map {
 
         GameObject wall;
         GameObject floor;
-        GameObject coin;
         for (int i = 0; i < wallAmount; i++)
         {
             wall = WallPool.instance.GetWall();
@@ -93,11 +87,6 @@ public class Map {
     public float getFloorPosY(int n_th_floor)
     {
         return startPosition.y + ((n_th_floor - 1) * 0.9f);
-    }
-
-    public int randomInt(int min, int max)
-    {
-        return Random.Range(min, max+1);
     }
 
     public int randomInt(List<int> list)
