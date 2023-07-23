@@ -25,14 +25,18 @@ public class Map1 : Map
             switch (isFloorHaveWall[i])
             {
                 case -1:
-                    walls[a].transform.Translate(wallLeftPosX, getFloorPosY(i+1) + floorDistance / 2, 1); a++;
+                    walls[a].transform.Translate(wallLeftPosX, getFloorPosY(i+1) + floorDistance / 2, 1); 
+                    a++;
                     break;
                 case 2:
-                    walls[a].transform.Translate(wallLeftPosX, getFloorPosY(i+1) + floorDistance / 2, 1); a++;
-                    walls[a].transform.Translate(wallRightPosX, getFloorPosY(i+1) + floorDistance / 2, 1); a++;
+                    walls[a].transform.Translate(wallLeftPosX, getFloorPosY(i+1) + floorDistance / 2, 1); 
+                    a++;
+                    walls[a].transform.Translate(wallRightPosX, getFloorPosY(i+1) + floorDistance / 2, 1); 
+                    a++;
                     break;
                 case 1:
-                    walls[a].transform.Translate(wallRightPosX, getFloorPosY(i+1) + floorDistance / 2, 1); a++;
+                    walls[a].transform.Translate(wallRightPosX, getFloorPosY(i+1) + floorDistance / 2, 1); 
+                    a++;
                     break;
             }
         }
