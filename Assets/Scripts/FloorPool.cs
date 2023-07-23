@@ -5,7 +5,7 @@ using UnityEngine;
 public class FloorPool : MonoBehaviour
 {
     public GameObject floorPrefab;
-    public int poolSize = 50;
+    public int poolSize = 100;
     List<GameObject> floors = new List<GameObject>();
 
     public static FloorPool instance { get; private set; }

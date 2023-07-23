@@ -13,9 +13,10 @@ public class Map {
     public List<GameObject> coins;
     public static float floorDistance = 0.9f;// = wall.scaleY + floor.scaleY
     public static float maxFloorLength = 5f;
+    public static float jumpDistance = 0.8f;
 
     public Map() { }
-    public virtual void initValueMap(int wallAmount, int coinAmount, Vector2 startPos)
+    public void initValueMap(int wallAmount, int coinAmount, Vector2 startPos)
     {
         walls = new List<GameObject>(wallAmount);
         floors = new List<GameObject>(10);
@@ -25,16 +26,14 @@ public class Map {
         GameObject wall;
         GameObject floor;
         
-        Vector2 pos = startPos;
         for (int i = 0; i < 10; i++)
         {
             isFloorHaveWall.Add(0);
             floor = FloorPool.instance.GetFloor();
             floor.SetActive(true);
 
-            floor.transform.position = pos;
+            floor.transform.Translate(startPos.x, startPos.y + floorDistance*i, 1);
             floor.transform.localScale.Set(maxFloorLength, 0.1f, 1f);
-            pos.Set(startPos.x, startPos.y + floorDistance);
 
             floors.Add(floor);
         }
@@ -45,9 +44,6 @@ public class Map {
             wall.SetActive(true);
             walls.Add(wall);
         }
-
-        //walls[wallAmount - 2].transform.position = ;
-        //walls[wallAmount - 1].transform.position = ;
         startPosition = startPos;
     }
 
@@ -60,7 +56,6 @@ public class Map {
 
         GameObject wall;
         GameObject floor;
-        GameObject coin;
         for (int i = 0; i < wallAmount; i++)
         {
             wall = WallPool.instance.GetWall();
@@ -95,11 +90,6 @@ public class Map {
         return startPosition.y + ((n_th_floor - 1) * 0.9f);
     }
 
-    public int randomInt(int min, int max)
-    {
-        return Random.Range(min, max+1);
-    }
-
     public int randomInt(List<int> list)
     {
         return list[Random.Range(0, list.Count)];
@@ -113,18 +103,21 @@ public class Map {
 
             foreach (GameObject floor in floors)
             {
+                floor.transform.Translate(-floor.transform.position.x, -floor.transform.position.y,0);
+                floor.transform.localScale = new Vector3(5f, 0.1f, 1f);
                 FloorPool.instance.ReturnFloor(floor);
             }
 
             foreach (GameObject wall in walls)
             {
+                wall.transform.Translate(-wall.transform.position.x, -wall.transform.position.y, 0);
                 WallPool.instance.ReturnWall(wall);
             }
-            foreach (GameObject coin in coins)
-            {
-                CoinPool.instance.ReturnCoin(coin);
-            }
-            coins.Clear();
+            //foreach (GameObject coin in coins)
+            //{
+            //    CoinPool.instance.ReturnCoin(coin);
+            //}
+            //coins.Clear();
             walls.Clear();
             floors.Clear();
         }

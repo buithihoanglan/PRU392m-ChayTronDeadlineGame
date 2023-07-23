@@ -5,19 +5,18 @@ using UnityEngine;
 public class Map0 : Map
 {
     //11 floor, 14 wall
-    //TAI SAO HAM NAY LAI LUC CHAY 1 LAN LUC CHAY 2 LAN ????????????
     public new void initValueMap(int wallAmount, int floorAmount, int coinAmount, Vector2 startPos)
     {
         base.initValueMap(wallAmount, floorAmount, coinAmount, startPos);
         //chon ra 2 floor co 2 wall(tru wall dau va wall cuoi)
-        int a = randomInt(3, 5);
+        int a = Random.Range(3,6);
         int b = 7;
         switch (a){
             case 3:
-                b=randomInt(5, 8);
+                b= Random.Range(5, 9);
                 break;
             case 4:
-                b = randomInt(6, 9);
+                b = Random.Range(6, 10);
                 break;
             case 5:
                 b = randomInt(new List<int> {2,7,8});
@@ -62,7 +61,6 @@ public class Map0 : Map
                         walls[nextUseWallIndexInFloorList].transform.Translate(wallRightPosX, getFloorPosY(i) + floorDistance / 2, 1);
                         isFloorHaveWall[i-1] = 1;
                         nextUseWallIndexInFloorList++;
-                        //Debug.Log(nextUseWallIndexInFloorList);
                         break;
                     case 0:
                     case 2:
@@ -70,13 +68,11 @@ public class Map0 : Map
                         walls[nextUseWallIndexInFloorList].transform.Translate(wallSide == 1 ? wallRightPosX : wallLeftPosX, getFloorPosY(i) + floorDistance / 2, 1);
                         isFloorHaveWall[i - 1] = wallSide;
                         nextUseWallIndexInFloorList++;
-                        //Debug.Log(nextUseWallIndexInFloorList);
                         break;
                     case 1:
                         walls[nextUseWallIndexInFloorList].transform.Translate(wallLeftPosX, getFloorPosY(i) + floorDistance / 2, 1);
                         isFloorHaveWall[i-1] = -1;
                         nextUseWallIndexInFloorList++;
-                        //Debug.Log(nextUseWallIndexInFloorList);
                         break;
                 }
             }

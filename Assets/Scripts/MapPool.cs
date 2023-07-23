@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MapPool : MonoBehaviour
 {
-    public int poolSize = 16;
+    public int poolSize = 17;
     List<Map> maplist = new List<Map>();
 
     public static MapPool instance { get; private set; }
@@ -20,17 +20,38 @@ public class MapPool : MonoBehaviour
         map0.isActive = false;
         maplist.Add(map0);
 
-        for (int i = 1; i < poolSize; i++)
+        for (int i = 1; i < 5; i++)
         {
-            Map map = new Map();
+            Map map = new Map1();
+            map.isActive = false;
+            maplist.Add(map);
+        }
+
+        for (int i = 5; i < 9; i++)
+        {
+            Map map = new Map2();
+            map.isActive = false;
+            maplist.Add(map);
+        }
+
+        for (int i = 9; i < 13; i++)
+        {
+            Map map = new Map3();
+            map.isActive = false;
+            maplist.Add(map);
+        }
+
+        for (int i = 13; i < 17; i++)
+        {
+            Map map = new Map4();
             map.isActive = false;
             maplist.Add(map);
         }
     }
 
-    public Map GetMap()
+    public Map GetMap(int mapType)
     {
-        for (int i = 1; i < maplist.Count; i++)
+        for (int i = ((mapType-1)*4+1); i < (mapType*4+1); i++)
         {
             if (!maplist[i].isActive)
             {
