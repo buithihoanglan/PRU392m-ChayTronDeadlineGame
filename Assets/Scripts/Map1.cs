@@ -44,16 +44,16 @@ public class Map1 : Map
         switch (9-wallAmount)
         {
             case 2:
-                map2NoWall();Debug.Log("2 wall");
+                map2NoWall();
                 break;
             case 3:
-                map3NoWall(); Debug.Log("3 wall");
+                map3NoWall();
                 break;
             case 4:
-                map4NoWall(); Debug.Log("4 wall");
+                map4NoWall();
                 break;
             case 5:
-                map5NoWall(); Debug.Log("5 wall");
+                map5NoWall();
                 break;
         }
     }
@@ -83,6 +83,7 @@ public class Map1 : Map
                 }
             }
         }
+        isFloorHaveWall[9] = 2;
     }
 
     public void map3NoWall()
