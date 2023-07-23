@@ -103,18 +103,21 @@ public class Map {
 
             foreach (GameObject floor in floors)
             {
+                floor.transform.Translate(-floor.transform.position.x, -floor.transform.position.y,0);
+                floor.transform.localScale = new Vector3(5f, 0.1f, 1f);
                 FloorPool.instance.ReturnFloor(floor);
             }
 
             foreach (GameObject wall in walls)
             {
+                wall.transform.Translate(-wall.transform.position.x, -wall.transform.position.y, 0);
                 WallPool.instance.ReturnWall(wall);
             }
-            foreach (GameObject coin in coins)
-            {
-                CoinPool.instance.ReturnCoin(coin);
-            }
-            coins.Clear();
+            //foreach (GameObject coin in coins)
+            //{
+            //    CoinPool.instance.ReturnCoin(coin);
+            //}
+            //coins.Clear();
             walls.Clear();
             floors.Clear();
         }

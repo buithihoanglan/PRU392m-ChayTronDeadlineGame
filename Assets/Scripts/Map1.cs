@@ -18,7 +18,7 @@ public class Map1 : Map
     public void generateWall()
     {
         int a = 0;
-        float wallLeftPosX = -(startPosition.x + maxFloorLength / 2 - 0.05f);
+        float wallLeftPosX = startPosition.x - maxFloorLength / 2 + 0.05f;
         float wallRightPosX = wallLeftPosX + maxFloorLength - 0.1f;
         for (int i = 0; i < isFloorHaveWall.Count; i++)
         {
