@@ -83,6 +83,7 @@ public class Map1 : Map
                 }
             }
         }
+        isFloorHaveWall[9] = 2;
     }
 
     public void map3NoWall()
