@@ -13,6 +13,7 @@ public class Map {
     public List<GameObject> coins;
     public static float floorDistance = 0.9f;// = wall.scaleY + floor.scaleY
     public static float maxFloorLength = 5f;
+    public static float jumpDistance = 0.8f;
 
     public Map() { }
     public void initValueMap(int wallAmount, int coinAmount, Vector2 startPos)

@@ -19,7 +19,7 @@ public class MapGenerator : MonoBehaviour
         {
             pos.Set(startPos.x, startPos.y + 9.8f);//TAI SAO DOI CHO 2 CAU LENH NAY THI SE CO LUC HAM DUOI DUOC CHAY 2 LAN ???????
             MapPool.instance.GetMap0().initValueMap(14, 11, 0, startPos);
-            ((Map1)MapPool.instance.GetMap(1)).initValueMap(8, 0, pos);
+            ((Map3)MapPool.instance.GetMap(3)).initValueMap(7,13, 0, pos,false);
         }
         else
         {
