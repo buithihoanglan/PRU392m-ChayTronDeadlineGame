@@ -6,14 +6,15 @@ public class Jump : MonoBehaviour
 {
     public float forceAmount = 11f;
     Rigidbody2D player;
+    bool isGrounded = true;
     bool direction;//true=right,left=false
     Vector2 a = new Vector2(5f, 0);
+
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
         player.AddForce(new Vector2(5f, 0), ForceMode2D.Impulse);
-        //Time.timeScale = 0.1f;
         direction = true;
     }
 
@@ -23,7 +24,7 @@ public class Jump : MonoBehaviour
         player.rotation = 0f;
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (player.velocity.y >= -5 && player.velocity.y <= 5)
+            if (isGrounded)
             {
                 if (direction)
                 {
@@ -35,7 +36,7 @@ public class Jump : MonoBehaviour
                 }
                 player.AddForce(new Vector2(0, forceAmount), ForceMode2D.Impulse);
             }
-            //player.AddForce(new Vector2(0, forceAmount), ForceMode2D.Impulse);
+                
         }
     }
 
@@ -55,6 +56,17 @@ public class Jump : MonoBehaviour
                 player.transform.Rotate(0, 180, 0);
                 direction = true;
             }
+        }else if(collision.gameObject.tag == "Floor")
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            isGrounded = false;
         }
     }
 }
