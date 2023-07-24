@@ -31,7 +31,7 @@ public class MapGenerator : MonoBehaviour
         pos = activeMaps[1].getNextStartPosition();
 
         activeMaps.Add(MapPool.instance.GetMap(1));
-        ((Map1)activeMaps[2]).initValueMap(7 + 2, 0, pos);
+        ((Map1)activeMaps[2]).initValueMap(Random.Range(4, 8) + 2, 0, pos);
         pos = activeMaps[2].getNextStartPosition();
 
         activeMaps.Add(MapPool.instance.GetMap(3)); 

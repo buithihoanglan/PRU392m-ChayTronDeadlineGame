@@ -25,17 +25,17 @@ public class Map1 : Map
             switch (isFloorHaveWall[i])
             {
                 case -1:
-                    walls[a].transform.Translate(wallLeftPosX, getFloorPosY(i+1) + floorDistance / 2, 1); 
+                    walls[a].transform.Translate(wallLeftPosX, getFloorPosY(i+1) + floorDistance / 2, 1);
                     a++;
                     break;
                 case 2:
-                    walls[a].transform.Translate(wallLeftPosX, getFloorPosY(i+1) + floorDistance / 2, 1); 
+                    walls[a].transform.Translate(wallLeftPosX, getFloorPosY(i + 1) + floorDistance / 2, 1);
                     a++;
-                    walls[a].transform.Translate(wallRightPosX, getFloorPosY(i+1) + floorDistance / 2, 1); 
+                    walls[a].transform.Translate(wallRightPosX, getFloorPosY(i + 1) + floorDistance / 2, 1);
                     a++;
                     break;
                 case 1:
-                    walls[a].transform.Translate(wallRightPosX, getFloorPosY(i+1) + floorDistance / 2, 1); 
+                    walls[a].transform.Translate(wallRightPosX, getFloorPosY(i+1) + floorDistance / 2, 1);
                     a++;
                     break;
             }
@@ -48,15 +48,19 @@ public class Map1 : Map
         switch (9-wallAmount)
         {
             case 2:
+                Debug.Log(2);
                 map2NoWall();
                 break;
             case 3:
+                Debug.Log(3);
                 map3NoWall();
                 break;
             case 4:
+                Debug.Log(4);
                 map4NoWall();
                 break;
             case 5:
+                Debug.Log(5);
                 map5NoWall();
                 break;
         }
@@ -72,7 +76,7 @@ public class Map1 : Map
         }
         else
         {
-            secondNoWall= Random.Range(firstNoWall, 10);
+            secondNoWall= Random.Range(firstNoWall+1, 10);
         }
 
         int a = randomInt(new List<int> { -1, 1 });
