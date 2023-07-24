@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public GameOver gameOver;
+    
     // Update is called once per frame
     void Update()
     {
         if(Camera.main.transform.position.y - transform.position.y > 7f)
         {
-            //hien len pop up la game over
-
-            //bam ok tro ve man hinh home
-
+            GameOver();
         }
+    }
+
+    public void GameOver()
+    {
+        gameOver.SetUp(ScoreController.score);
     }
 }
