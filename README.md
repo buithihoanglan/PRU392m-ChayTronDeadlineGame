@@ -1,6 +1,6 @@
-# PRU392m-ChayTronDeadlineGame
+# PRU211m-ChayTronDeadlineGame
 
-ChayTronDeadline là một tựa game được phát triển bởi Đỗ Ngọc Duy và Bùi Thị Hoàng Lan, dưới sự giảng dạy môn PRU392m của thầy Ngô Tùng Sơn
+ChayTronDeadline là một tựa game được phát triển bởi Đỗ Ngọc Duy và Bùi Thị Hoàng Lan, dưới sự giảng dạy môn PRU211m của thầy Ngô Tùng Sơn
 
 # Cốt Truyện
 
