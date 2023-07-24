@@ -9,7 +9,8 @@ public class Jump : MonoBehaviour
     bool isGrounded = true;
     bool direction;//true=right,left=false
     Vector2 a = new Vector2(5f, 0);
-
+    [SerializeField]
+    private AudioSource jumpSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class Jump : MonoBehaviour
         player.rotation = 0f;
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            jumpSound.Play();
             if (isGrounded)
             {
                 if (direction)
