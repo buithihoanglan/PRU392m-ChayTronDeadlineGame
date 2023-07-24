@@ -8,7 +8,6 @@ public class PlayButtonController : MonoBehaviour
     {
 
         //Load scene
-        //SceneManager.LoadScene("MainScene");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("MainScene");
     }
 }
